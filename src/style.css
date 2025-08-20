@@ -1,0 +1,205 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+a-scene { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 0; 
+}
+
+.ui-layer {
+  position: fixed; 
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;  
+}
+
+/* 你的快捷鍵容器 */
+.ui-layer .controls {
+  width: 100%;
+  height: 45px;
+  padding: 1rem;
+  background-color: #242424;
+  opacity: .5;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex; 
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;  
+}
+
+.controls .shortcut {
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.controls .button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.confirm-overlay{
+  position: fixed; 
+  inset: 0; 
+  display: grid; 
+  place-items: center;
+  background: rgba(0,0,0,.25); 
+  z-index: 20;
+}
+.confirm-card{
+  background: #fff; 
+  padding: 16px 20px; 
+  border-radius: 12px; 
+  min-width: 240px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+.confirm-card .title{
+  font-weight: 600; 
+  margin-bottom: 12px;
+}
+.confirm-card .actions{ 
+  display: flex; 
+  gap: 8px; 
+  justify-content: flex-end; 
+}
+.confirm-card button{
+  padding: 8px 12px; 
+  border-radius: 8px; 
+  border: 1px solid #ddd; 
+  background: #111; 
+  color: #fff;
+}
+.confirm-card button.ghost{
+  background: #fff; 
+  color:#111; 
+  border: 1px solid #ddd;
+}
+.card-mask{ 
+  position:fixed; 
+  inset:0; 
+  background:rgba(0,0,0,.35); 
+  display:grid; 
+  place-items:center; 
+  z-index:30; 
+}
+.card{ 
+  width: min(720px, 92vw); 
+  background:#fff; 
+  border-radius:14px; 
+  box-shadow:0 20px 60px rgba(0,0,0,.18); 
+  padding: 1rem 2rem;
+  overflow:hidden; 
+}
+.header{ 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  padding:12px 0; 
+  border-bottom:1px solid #eee; 
+}
+h3{ 
+  font-size:18px; 
+  margin:0; 
+}
+.close{ 
+  border:0; 
+  background:transparent; 
+  font-size:22px; 
+  line-height:1; 
+  cursor:pointer;
+  padding: none; 
+}
+.media{ 
+  background:#000; 
+  display:grid; 
+  place-items:center; 
+}
+.media img, .media video{ 
+  max-width:100%; 
+  height:auto; 
+  display:block; 
+}
+.desc{ 
+  padding:14px 0;
+  text-align: left; 
+  line-height:1.7; 
+}
