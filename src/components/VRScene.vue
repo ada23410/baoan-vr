@@ -4,7 +4,7 @@
       <div class="controls" :class="{ open: isOpen }">
         <!-- 切換 icon -->
         <button class="icon" @click="toggle">
-          <img src="/public/icon/down-arrow.png" alt="" />
+          <img src="/icon/down-arrow.png" alt="" />
         </button>
         <h3 class="shortcut">快捷鍵</h3>
         <div class="buttons">
