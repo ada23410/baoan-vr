@@ -1,46 +1,55 @@
 <template>
-  <a-entity :position="item.position" @click="open">
-    <!-- 互動底座（命中區） -->
-    <a-entity class="hotspot" look-at="#cam"
-      :geometry="`primitive: circle; radius: ${radius}`"
-      :material="`color: ${color}; opacity: 0.9; side: double`"
-      animation__enter="property: scale; to: .7 .7 .7; startEvents: mouseenter; dur: 120"
-      animation__leave="property: scale; to: .5 .5 .5; startEvents: mouseleave; dur: 120">
-    </a-entity>
+    <a-entity :position="item.position" @click="open">
+    <!-- 圖示（被 raycaster 命中 → 負責觸發 hover） -->
+        <a-image
+            class="hotspot"
+            :src="iconSrc"
+            :width="iconSize"
+            :height="iconSize"
+            position="0 0 0.01"
+            look-at="#cam"
+            scale="1.5 1.5 1"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            animation__mouseenter="property: scale; to: 1.7 1.7 1; dur: 200; startEvents: mouseenter"
+            animation__mouseleave="property: scale; to: 1.5 1.5 1; dur: 200; startEvents: mouseleave">
+        </a-image>
 
-    <!-- 中央符號（根據類型） -->
-    <a-entity
-      :troika-text="`value: ${glyph}; color: white; align: center; fontSize: ${radius*0.5}; letterSpacing: 0.02`"
-      position="0 0 0.01" look-at="#cam">
+        <!-- Tooltip（顯示在圖示上方一點點） -->
+        <a-entity :visible="hovered" position="0 0.42 0" look-at="#cam">
+            <a-plane
+                :width="tooltipW" :height="tooltipH"
+                material="color: #272727; opacity: 0.7; transparent: true; side: double;"
+                position="0 0 0.01">
+            </a-plane>
+            <a-entity
+                :troika-text="`value: ${label}; color: #fff; align: center; maxWidth: ${tooltipW - 0.1}; fontSize: 0.1`"
+                position="0 0 0.02">
+            </a-entity>
+        </a-entity>
     </a-entity>
-
-    <!-- 小標題（可選） -->
-    <!-- <a-entity v-if="label"
-      :troika-text="`value: ${label}; color: white; align: center; maxWidth: 2; fontSize: 0.22`"
-      position="0 0.45 0.02" look-at="#cam">
-    </a-entity> -->
-  </a-entity>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
-  item: { type: Object, required: true },  // { id,type,position,title,desc,media }
-  lang: { type: String,  default: 'zh-TW' },
+  item:   { type: Object, required: true }, // { id,type,position,title,desc,media,icon? }
+  lang:   { type: String, default: 'zh-TW' },
   radius: { type: Number, default: 0.18 }
 })
 const emit = defineEmits(['open'])
+const hovered = ref(false)
 
-const TYPE_COLOR = {
-  info: '#FF8000', artifact: '#f59e0b', photo: '#8b5cf6', video: '#ef4444', audio: '#10b981', history: '#a16207'
-}
-const TYPE_GLYPH = {
-  info: 'i', artifact: '★', photo: '▢', video: '▶', audio: '♪', history: '冊'
-}
-const color = computed(() => TYPE_COLOR[props.item.type] || '#0ea5e9')
-const glyph = computed(() => TYPE_GLYPH[props.item.type] || 'i')
-const label = computed(() => props.item.title?.[props.lang] || '')
+// 圖示：使用 public/icon/ 下的 PNG
+const TYPE_ICON = { info: '/icon/info.png' }
+const iconSrc  = computed(() => props.item.icon || TYPE_ICON[props.item.type] || '/icon/info.png')
+const iconSize = computed(() => props.radius * 1.5)
+
+// 小標題內容與對話框尺寸（可依需要調整）
+const label    = computed(() => props.item.title?.[props.lang] || '')
+const tooltipW = .8   
+const tooltipH = 0.32 
 
 function open(){ emit('open', props.item) }
 </script>
