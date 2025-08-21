@@ -84,48 +84,90 @@ a-scene {
 }
 
 .ui-layer {
-  position: fixed; 
+  position: fixed;
   inset: 0;
-  z-index: 1000;
-  pointer-events: none;  
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
 }
 
-/* 你的快捷鍵容器 */
 .ui-layer .controls {
-  width: 100%;
-  height: 45px;
-  padding: 1rem;
-  background: linear-gradient(180deg,hsla(0, 0%, 17%, 0.43) 30%, #1f1f1fa9 100%);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: flex; 
+  position: relative;  
+  pointer-events: auto;
+  background: linear-gradient(180deg, hsla(0,0%,17%,.43) 30%, #1f1f1fa9 100%);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  display: grid;
+  grid-template-columns: auto auto 1fr;
   align-items: center;
   gap: 8px;
-  pointer-events: auto;  
+  padding: 0 12px;            
+  max-height: 0;           
+  transition: max-height 220ms ease, padding 220ms ease;
 }
 
-.controls .shortcut {
-  color: #fff;
-  margin-right: 1rem;
+.ui-layer .controls.open {
+  max-height: 240px;        
+  padding: 12px 12px;
 }
 
-.controls::after {
-    content: "";
-    color: #FFF;
-    width: 80px;
-    height: 58px;
-    border-radius: 50px 50px 0 0;
-    background: hsla(0, 0%, 17%, 0.43) 30%;
-    position: relative;
-    top: calc(-100% - 50%);
-    left: -30%;
+.controls .icon {
+  position: absolute;
+  top: -35px; 
+  z-index: 2;
+  left: 50%;
+  width: 50px; 
+  height: 35px;
+  border-radius: 50px 50px 0 0;
+  background: rgba(48, 48, 48, 0.411);
+  cursor: pointer;
+  transition: background 180ms ease;
+  display: flex;
+  justify-content: center;    
+  align-items: center;      
 }
 
+.controls .icon:hover { 
+  background: rgba(255,255,255,.2); 
+}
+
+.controls .icon img { 
+  width: 30px; 
+  height: 30px; 
+  transition: transform 220ms ease; 
+}
+
+.controls.open .icon img { 
+  transform: rotate(180deg); 
+} 
+
+/* 標題 */
+.controls .shortcut { 
+  margin: 0 8px 0 6px;
+  font-size: 1rem; 
+  font-weight: 600;
+}
+
+/* 按鈕群：換行排列 */
+.controls .buttons {
+  display: flex; 
+  gap: 8px;
+}
 .controls .button {
-  background-color: transparent;
+  background: transparent;
   border: 1px solid #fff;
   color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.controls .button:hover {
+  background: #fff; color: #111; border-color: #fff;
 }
 
 .confirm-overlay{

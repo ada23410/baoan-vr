@@ -3,7 +3,7 @@
         <div class="card">
             <div class="header">
                 <h3>{{ title }}</h3>
-                <button class="close" @click="close">×</button>
+                <button class="close" @click="close" style="padding: 0;">×</button>
             </div>
             <section class="media" v-if="media">
                 <img v-if="media.type==='image'" :src="media.src" :alt="title"/>

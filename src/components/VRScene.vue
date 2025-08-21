@@ -1,10 +1,17 @@
 <template>
   <div style="height:100vh; width:100vw;">
-    <!-- 右下：快速切換場景 -->
     <div class="ui-layer">
-      <div class="controls">
+      <div class="controls" :class="{ open: isOpen }">
+        <!-- 切換 icon -->
+        <button class="icon" @click="toggle">
+          <img src="/public/icon/down-arrow.png" alt="" />
+        </button>
         <h3 class="shortcut">快捷鍵</h3>
-        <button class="button" v-for="s in allScenes" :key="s.id" @click="go(s.id)">{{ s.name }}</button>
+        <div class="buttons">
+          <button class="button" v-for="s in allScenes" :key="s.id" @click="go(s.id)">
+            {{ s.name }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -29,8 +36,7 @@
         :key="i"
         :hotspot="h"
         :lang="lang"
-        @select="go"
-      />
+        @select="go" />
 
       <!-- 資訊點 -->
       <KnowledgePoint
@@ -64,6 +70,9 @@ const activeKP = ref(null)
 
 const current = computed(() => store.current)
 const allScenes = computed(() => store.allScenes)
+
+const isOpen = ref(true)  // 預設展開
+function toggle(){ isOpen.value = !isOpen.value }
 
 // 直接切換
 function go(id){ 

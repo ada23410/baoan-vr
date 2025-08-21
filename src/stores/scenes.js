@@ -54,7 +54,7 @@ const SCENES = {
             {
                 id: 'k-sanchuan-02',
                 type: 'info',
-                position: '1.5 .7 -3',        // 與上一點錯開，避免重疊
+                position: '1.5 .7 -3',       
                 icon: '/icon/info.png',
                 title: { 'zh-TW': '龍柱' },
                 desc:  { 
@@ -62,7 +62,7 @@ const SCENES = {
                 },
                 media: { 
                     type: 'image', 
-                    src: '/scene/dragon_column.jpg' // 之後可改為實景特寫或示意圖
+                    src: '/scene/dragon_column.jpg' 
                 }
             }
         ]
