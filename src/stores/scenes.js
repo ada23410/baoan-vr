@@ -60,7 +60,7 @@ const SCENES = {
         label: { 'zh-TW': '東山門' } 
       },
       { 
-        target: 'east-door', 
+        target: 'west-door', 
         position: '-1 1 -3',
         icon: 'icon/left-arrow.png',    
         label: { 'zh-TW': '西山門' } 
