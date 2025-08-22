@@ -52,6 +52,18 @@ const SCENES = {
         position: '0 1 -3',
         icon: 'icon/foward-arrow.png',    
         label: { 'zh-TW': '前殿' } 
+      },
+      { 
+        target: 'east-door', 
+        position: '1 1 -3',
+        icon: 'icon/right-arrow.png',    
+        label: { 'zh-TW': '東山門' } 
+      },
+      { 
+        target: 'east-door', 
+        position: '-1 1 -3',
+        icon: 'icon/left-arrow.png',    
+        label: { 'zh-TW': '西山門' } 
       }
     ],
     knowledge:[
@@ -458,6 +470,12 @@ const SCENES = {
         position: '0 .5 -2', 
         icon: 'icon/back-arrow.png',  
         label: { 'zh-TW': '回到三川殿' } 
+      },
+      { 
+        target: 'sanchuan-near', 
+        position: '-1 .5 -2',
+        icon: 'icon/left-arrow-01.png', 
+        label: { 'zh-TW': '三川殿（近部）' } 
       }
     ]
   },
@@ -472,6 +490,12 @@ const SCENES = {
         position: '0 .5 -2',
         icon: 'icon/back-arrow.png',   
         label: { 'zh-TW': '回到三川殿' } 
+      },
+      { 
+        target: 'sanchuan-near', 
+        position: '1 .5 -2',
+        icon: 'icon/right-arrow-01.png', 
+        label: { 'zh-TW': '三川殿（近部）' } 
       }
     ]
   }
