@@ -15,9 +15,24 @@ const SCENES = {
     name: '三川殿',
     pano: 'front/01.jpg',
     hotspots: [
-      { target: 'east-door',  position: '2 1.5 -3',  label: { 'zh-TW': '東山門' } },
-      { target: 'west-door',  position: '-3 1.5 -3', label: { 'zh-TW': '西山門' } },
-      { target: 'sanchuan-near', position: '-0.3 1.5 -3', label: { 'zh-TW': '三川殿（近部）' } }
+      { 
+        target: 'east-door',  
+        position: '1 .5 -3',
+        icon: 'icon/right-arrow.png',   
+        label: { 'zh-TW': '東山門' } 
+      },
+      { 
+        target: 'west-door',  
+        position: '-1.5 .5 -3',
+        icon: 'icon/left-arrow.png',    
+        label: { 'zh-TW': '西山門' } 
+      },
+      { 
+        target: 'sanchuan-near', 
+        position: '-0.3 .5 -3',
+        icon: 'icon/foward-arrow.png', 
+        label: { 'zh-TW': '三川殿（近部）' } 
+      }
     ]
   },
 
@@ -26,14 +41,24 @@ const SCENES = {
     name: '三川殿（近部）',
     pano: 'front/01-03.jpg',
     hotspots: [
-      { target: 'sanchuan',  position: '0 1.5 -3', label: { 'zh-TW': '回到三川殿' } },
-      { target: 'qian-dian', position: '0 2 -3',   label: { 'zh-TW': '前殿' } }
+      { 
+        target: 'sanchuan',  
+        position: '0 0 -3', 
+        icon: 'icon/back-arrow.png', 
+        label: { 'zh-TW': '回到三川殿' } 
+      },
+      { 
+        target: 'qian-dian', 
+        position: '0 1 -3',
+        icon: 'icon/foward-arrow.png',    
+        label: { 'zh-TW': '前殿' } 
+      }
     ],
     knowledge:[
       {
         id: 'k-sanchuan-01',
         type: 'info',
-        position: '1.5 1.5 -3',
+        position: '2.5 1.5 -3',
         icon: 'icon/info.png',
         title: { 'zh-TW': '三川殿' },
         desc:  { 'zh-TW': '三川殿正面立面採「十一開間」配置，面闊分十一柱間，中央三開間強調中軸與出入主線。屋頂為「歇山重簷」，兩層出檐分級，脊線起翹，兼具禮制層次與遮陽排雨功能；整體比例扁闊，形成端正的門面尺度與迎賓儀式感。' },
@@ -43,7 +68,7 @@ const SCENES = {
       {
         id: 'k-sanchuan-02',
         type: 'info',
-        position: '1.5 .7 -3',
+        position: '2.5 .7 -3',
         icon: 'icon/info.png',
         title: { 'zh-TW': '龍柱' },
         desc:  { 'zh-TW': '龍柱多以整塊石材圓料施作，先定中線、放樣分區，再行粗胚與細修；龍身迴繞柱身，鱗、爪、鬚須分層起降，以陰陽刻強調立體感與光影。' },
@@ -58,9 +83,30 @@ const SCENES = {
     name: '前殿',
     pano: 'front/02-02.jpg',
     hotspots: [
-      { target: 'zhong-lou', position: '-2 1.5 -3', label: { 'zh-TW': '鐘樓' } },
-      { target: 'sanchuan',  position: '-1 1.5 -3', label: { 'zh-TW': '回到三川殿' } },
-      { target: 'gu-lou',    position: '0 1.5 -3',  label: { 'zh-TW': '鼓樓' } }
+      { 
+        target: 'zhong-lou', 
+        position: '-2 .5 -3', 
+        icon: 'icon/left-arrow.png',    
+        label: { 'zh-TW': '鐘樓' } 
+      },
+      { 
+        target: 'zhengdian',  
+        position: '1 0 -3',
+        icon: 'icon/back-arrow.png',  
+        label: { 'zh-TW': '正殿' } 
+      },
+      { 
+        target: 'sanchuan',  
+        position: '1 .5 -3',
+        icon: 'icon/foward-arrow.png',  
+        label: { 'zh-TW': '回到三川殿' } 
+      },
+      { 
+        target: 'gu-lou',    
+        position: '2 .5 -3',
+        icon: 'icon/right-arrow.png',     
+        label: { 'zh-TW': '鼓樓' } 
+      }
     ]
   },
 
@@ -70,8 +116,18 @@ const SCENES = {
     name: '鼓樓',
     pano: 'front/02-03.jpg',
     hotspots: [
-      { target: 'sanchuan',  position: '-1 1.5 -3', label: { 'zh-TW': '回到三川殿' } },
-      { target: 'zhengdian', position: '0 1.5 -3',  label: { 'zh-TW': '正殿' } }
+      { 
+        arget: 'sanchuan',  
+        position: '-1 .5 -3',
+        icon: 'icon/left-arrow.png',     
+        label: { 'zh-TW': '回到三川殿' } 
+      },
+      { 
+        target: 'zhengdian', 
+        position: '1 .5 -3',  
+        icon: 'icon/right-arrow.png', 
+        label: { 'zh-TW': '正殿' } 
+      }
     ],
     knowledge: [
       {
@@ -94,10 +150,30 @@ const SCENES = {
     name: '正殿',
     pano: 'front/02-04.jpg',
     hotspots: [
-      { target: 'gu-lou',         position: '-1 1.5 -3', label: { 'zh-TW': '鼓樓' } },
-      { target: 'sanchuan',       position: '0 1 -3',    label: { 'zh-TW': '回到三川殿' } },
-      { target: 'zhengdian-near', position: '0 1.5 -3',  label: { 'zh-TW': '正殿（近部）' } },
-      { target: 'zhong-lou',      position: '1 1.5 -3',  label: { 'zh-TW': '鐘樓' } }
+      { 
+        target: 'gu-lou',         
+        position: '-1 .5 -3', 
+        icon: 'icon/left-arrow.png',     
+        label: { 'zh-TW': '鼓樓' } 
+      },
+      { 
+        target: 'sanchuan',       
+        position: '0 .5 -3',
+        icon: 'icon/back-arrow.png',      
+        label: { 'zh-TW': '回到三川殿' } 
+      },
+      { 
+        target: 'zhengdian-near', 
+        position: '0 1 -3',
+        icon: 'icon/foward-arrow.png',    
+        label: { 'zh-TW': '正殿（近部）' } 
+      },
+      { 
+        target: 'zhong-lou',      
+        position: '1 .5 -3', 
+        icon: 'icon/right-arrow.png',     
+        label: { 'zh-TW': '鐘樓' } 
+      }
     ],
     knowledge: [
       {
@@ -123,15 +199,30 @@ const SCENES = {
     name: '鐘樓',
     pano: 'front/02-09.jpg',
     hotspots: [
-      { target: 'right-corridor', position: '-1 1.5 -3', label: { 'zh-TW': '右廊' } },
-      { target: 'zhengdian',      position: '0 1.5 -3',  label: { 'zh-TW': '正殿' } },
-      { target: 'sanchuan',       position: '1 1.5 -3',  label: { 'zh-TW': '回到三川殿' } }
+      { 
+        target: 'right-corridor', 
+        position: '-1 .5 -3', 
+        icon: 'icon/left-arrow.png', 
+        label: { 'zh-TW': '右廊' } 
+      },
+      { 
+        target: 'zhengdian',      
+        position: '0 .5 -3',
+        icon: 'icon/foward-arrow.png',   
+        label: { 'zh-TW': '正殿' } 
+      },
+      { 
+        target: 'sanchuan',       
+        position: '1 .5 -3', 
+        icon: 'icon/right-arrow.png', 
+        label: { 'zh-TW': '回到三川殿' } 
+      }
     ],
     knowledge: [
       {
         id: 'k-zhonglou-01',
         type: 'info',
-        position: '0 .5 -3',
+        position: '0 1.5 -3',
         icon: 'icon/info.png',
         title: { 'zh-TW': '鐘樓' },
         desc: { 
@@ -148,15 +239,30 @@ const SCENES = {
     pano: 'front/02-05.jpg',
     rotation: '0 -90 0',
     hotspots: [
-      { target: 'zhengdian',      position: '0 1.5 -3', label: { 'zh-TW': '回到正殿' } },
-      { target: 'right-corridor', position: '1 1.5 -3', label: { 'zh-TW': '右廊' } },
-      { target: 'left-corridor',  position: '-1 1.5 -3',label: { 'zh-TW': '左廊' } }
+      { 
+        target: 'zhengdian',      
+        position: '0  0 -3',
+        icon: 'icon/back-arrow.png',    
+        label: { 'zh-TW': '回到正殿' } 
+      },
+      { 
+        target: 'right-corridor', 
+        position: '1  0 -3', 
+        icon: 'icon/right-arrow.png', 
+        label: { 'zh-TW': '右廊' } 
+      },
+      { 
+        target: 'left-corridor',  
+        position: '-1  0 -3',
+        icon: 'icon/left-arrow.png', 
+        label: { 'zh-TW': '左廊' } 
+      }
     ],
     knowledge: [
       {
         id: 'k-zhengdian-near-01',
         type: 'info',
-        position: '0 0.5 -3',   
+        position: '0 1.5 -3',   
         icon: 'icon/info.png',
         title: { 
           'zh-TW': '真人所居牌匾' 
@@ -172,7 +278,7 @@ const SCENES = {
       {
         id: 'k-zhengdian-near-02',
         type: 'info',
-        position: '1 0.5 -3', 
+        position: '1 1.5 -3', 
         icon: 'icon/info.png',
         title: { 
           'zh-TW': '黑虎將軍' 
@@ -188,7 +294,7 @@ const SCENES = {
         {
         id: 'k-zhengdian-near-03',
         type: 'info',
-        position: '1.5 .5 -3',  
+        position: '3 1.5 -3',  
         icon: 'icon/info.png',
         title: { 
           'zh-TW': '教科文組織' 
@@ -211,14 +317,24 @@ const SCENES = {
     pano: 'front/02-06.jpg',
     rotation: '0 -90 0',
     hotspots: [
-      { target: 'hou-dian',           position: '0 1.5 -3',  label: { 'zh-TW': '後殿' } },
-      { target: 'right-corridor-near', position: '-1 1.5 -3', label: { 'zh-TW': '右廊（近部）' } }
+      { 
+        target: 'hou-dian',           
+        position: '0 .5 -3',
+        icon: 'icon/foward-arrow.png',   
+        label: { 'zh-TW': '後殿' } 
+      },
+      { 
+        target: 'right-corridor-near', 
+        position: '-1 .5 -3', 
+        icon: 'icon/left-arrow.png',   
+        label: { 'zh-TW': '右廊（近部）' } 
+      }
     ],
     knowledge: [
       {
         id: 'k-unesco',
         type: 'info',
-        position: '0 .5 -3',  
+        position: '0 1.5 -3',  
         icon: 'icon/info.png',
         title: { 
           'zh-TW': '教科文組織' 
@@ -240,7 +356,12 @@ const SCENES = {
     pano: 'front/02-07.jpg',
     rotation: '0 -90 0',
     hotspots: [
-      { target: 'right-corridor', position: '2 1.5 -3', label: { 'zh-TW': '回到右廊' } }
+      { 
+        target: 'right-corridor', 
+        position: '2 .5 -3',
+        icon: 'icon/back-arrow.png',   
+        label: { 'zh-TW': '回到右廊' } 
+      }
     ]
   },
 
@@ -251,8 +372,17 @@ const SCENES = {
     pano: 'front/02-10.jpg',
     rotation: '0 -90 0',
     hotspots: [
-      { target: 'zhengdian',      position: '0 1.5 -3', label: { 'zh-TW': '回到正殿' } },
-      { target: 'right-corridor', position: '1 1.5 -3', label: { 'zh-TW': '右廊' } }
+      { 
+        target: 'zhengdian',      
+        position: '0 .5 -3', 
+        icon: 'icon/foward-arrow.png',  
+        label: { 'zh-TW': '回到正殿' } },
+      { 
+        target: 'right-corridor', 
+        position: '-1 .5 -3', 
+        icon: 'icon/left-arrow.png',  
+        label: { 'zh-TW': '右廊' } 
+      }
     ]
   },
 
@@ -262,15 +392,30 @@ const SCENES = {
     pano: 'front/02-08.jpg',
     rotation: '0 -90 0',
     hotspots: [
-      { target: 'left-corridor', position: '-1 1.5 -3', label: { 'zh-TW': '左廊' } },
-      { target: 'zhengdian',     position: '0 1.5 -3',  label: { 'zh-TW': '回到正殿' } },
-      { target: 'hou-dong',      position: '1 1.5 -3',  label: { 'zh-TW': '後棟' } }
+      { 
+        target: 'left-corridor', 
+        position: '-1 .5 -3',
+        icon: 'icon/left-arrow.png',   
+        label: { 'zh-TW': '左廊' } 
+      },
+      { 
+        target: 'zhengdian',     
+        position: '0 .5 -3',
+        icon: 'icon/back-arrow.png',     
+        label: { 'zh-TW': '回到正殿' } 
+      },
+      { 
+        target: 'hou-dong',      
+        position: '1 .5 -3',
+        icon: 'icon/right-arrow.png',     
+        label: { 'zh-TW': '後棟' } 
+      }
     ],
     knowledge: [
       {
         id: 'k-hou-dian-01',
         type: 'info',
-        position: '0 .5 -3',
+        position: '0 1.5 -3',
         icon: 'icon/info.png',
         title: { 'zh-TW': '主神神農殿' },
         desc: { 
@@ -281,7 +426,7 @@ const SCENES = {
       {
         id: 'k-hou-dian-01',
         type: 'info',
-        position: '1 0.5 -3',
+        position: '4 1.5 -3',
         icon: 'icon/info.png',
         title: { 'zh-TW': '井' },
         desc: { 
@@ -292,7 +437,7 @@ const SCENES = {
       {
         id: 'temple-xiziting',
         type: 'info',
-        position: '2 0.5 -3',
+        position: '2.5 1.5 -3',
         icon: 'icon/info.png',
         title: { 'zh-TW': '惜字亭' },
         desc: { 
@@ -308,7 +453,12 @@ const SCENES = {
     name: '東山門',
     pano: 'front/01-1.jpg',
     hotspots: [
-      { target: 'sanchuan', position: '0 1.5 -2', label: { 'zh-TW': '回到三川殿' } }
+      { 
+        target: 'sanchuan', 
+        position: '0 .5 -2', 
+        icon: 'icon/back-arrow.png',  
+        label: { 'zh-TW': '回到三川殿' } 
+      }
     ]
   },
 
@@ -317,7 +467,12 @@ const SCENES = {
     name: '西山門',
     pano: 'front/01-2.jpg',
     hotspots: [
-      { target: 'sanchuan', position: '0 1.5 -2', label: { 'zh-TW': '回到三川殿' } }
+      { 
+        target: 'sanchuan', 
+        position: '0 .5 -2',
+        icon: 'icon/back-arrow.png',   
+        label: { 'zh-TW': '回到三川殿' } 
+      }
     ]
   }
 }
