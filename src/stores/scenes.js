@@ -72,6 +72,19 @@ const SCENES = {
     hotspots: [
       { target: 'sanchuan',  position: '-1 1.5 -3', label: { 'zh-TW': '回到三川殿' } },
       { target: 'zhengdian', position: '0 1.5 -3',  label: { 'zh-TW': '正殿' } }
+    ],
+    knowledge: [
+      {
+        id: 'k-gulou-01',
+        type: 'info',
+        position: '0 0.5 -3',
+        icon: 'icon/info.png',
+        title: { 'zh-TW': '鼓樓' },
+        desc: { 
+          'zh-TW': '鼓樓常設於寺廟或宮殿的東側，內置巨鼓，用於晨昏擊鼓以報時，或在祭祀、重大典禮時敲擊，以莊嚴氣氛並傳遞訊號。其建築多為重檐歇山頂，樓身高聳，象徵威儀與正聲。' 
+        },
+        media: { type: 'image', src: 'scene/gulou.jpg' }
+      }
     ]
   },
 
@@ -85,6 +98,22 @@ const SCENES = {
       { target: 'sanchuan',       position: '0 1 -3',    label: { 'zh-TW': '回到三川殿' } },
       { target: 'zhengdian-near', position: '0 1.5 -3',  label: { 'zh-TW': '正殿（近部）' } },
       { target: 'zhong-lou',      position: '1 1.5 -3',  label: { 'zh-TW': '鐘樓' } }
+    ],
+    knowledge: [
+      {
+        id: 'k-zhengdian-01',
+        type: 'info',
+        position: '0 0 -2', 
+        icon: 'icon/info.png',
+        title: { 'zh-TW': '壓廂石' },
+        desc: { 
+          'zh-TW': '壓廂石為傳統建築地面常見建材，通常以花崗岩或堅硬石材製作，具耐磨與承重功能。其表面常經過磨平處理，以方便行走並保持排水順暢。' 
+        },
+        media: { 
+          type: 'image', 
+          src: 'scene/stone.jpg' 
+        }
+      }
     ]
   },
 
@@ -97,6 +126,19 @@ const SCENES = {
       { target: 'right-corridor', position: '-1 1.5 -3', label: { 'zh-TW': '右廊' } },
       { target: 'zhengdian',      position: '0 1.5 -3',  label: { 'zh-TW': '正殿' } },
       { target: 'sanchuan',       position: '1 1.5 -3',  label: { 'zh-TW': '回到三川殿' } }
+    ],
+    knowledge: [
+      {
+        id: 'k-zhonglou-01',
+        type: 'info',
+        position: '0 .5 -3',
+        icon: 'icon/info.png',
+        title: { 'zh-TW': '鐘樓' },
+        desc: { 
+          'zh-TW': '鐘樓多設於鼓樓相對位置，通常在西側。樓內懸掛大鐘，清晨擊鐘報時，或於法會、祭典中鳴鐘，以示肅穆與莊嚴。鐘聲悠遠，寓意驅邪醒世，亦成為傳統建築的重要聲音象徵。' 
+        },
+        media: { type: 'image', src: 'scene/zhonglou.jpg' }
+      }
     ]
   },
 
@@ -109,6 +151,56 @@ const SCENES = {
       { target: 'zhengdian',      position: '0 1.5 -3', label: { 'zh-TW': '回到正殿' } },
       { target: 'right-corridor', position: '1 1.5 -3', label: { 'zh-TW': '右廊' } },
       { target: 'left-corridor',  position: '-1 1.5 -3',label: { 'zh-TW': '左廊' } }
+    ],
+    knowledge: [
+      {
+        id: 'k-zhengdian-near-01',
+        type: 'info',
+        position: '0 0.5 -3',   
+        icon: 'icon/info.png',
+        title: { 
+          'zh-TW': '真人所居牌匾' 
+        },
+        desc: { 
+          'zh-TW': '保生大帝又稱吳真人或大道公，棄官從醫，被視為紫微星降世的化身，流傳有人成神的故事。' 
+        },
+        media: { 
+          type: 'image', 
+          src: 'scene/true_man.jpg' 
+        }
+      },
+      {
+        id: 'k-zhengdian-near-02',
+        type: 'info',
+        position: '1 0.5 -3', 
+        icon: 'icon/info.png',
+        title: { 
+          'zh-TW': '黑虎將軍' 
+        },
+        desc: { 
+          'zh-TW': '相傳保生大帝曾醫治一隻傷病吃人虎，虎獸感念救治之恩而歸順，後被收編為坐騎，成為護衛神將「黑虎將軍」。' 
+        },
+        media: { 
+          type: 'image', 
+          src: 'scene/tiger.jpg' 
+        }
+      },
+        {
+        id: 'k-zhengdian-near-03',
+        type: 'info',
+        position: '1.5 .5 -3',  
+        icon: 'icon/info.png',
+        title: { 
+          'zh-TW': '教科文組織' 
+        },
+        desc: { 
+          'zh-TW': '廟宇於1995至2003年間進行修復工程，秉持「整舊如舊」原則，使建築細節恢復歷史原貌，並於2003年獲得聯合國教科文組織（UNESCO）的肯定。' 
+        },
+        media: { 
+          type: 'image', 
+          src: 'scene/UNESCO.png' 
+        }
+      }
     ]
   },
 
@@ -121,6 +213,24 @@ const SCENES = {
     hotspots: [
       { target: 'hou-dian',           position: '0 1.5 -3',  label: { 'zh-TW': '後殿' } },
       { target: 'right-corridor-near', position: '-1 1.5 -3', label: { 'zh-TW': '右廊（近部）' } }
+    ],
+    knowledge: [
+      {
+        id: 'k-unesco',
+        type: 'info',
+        position: '0 .5 -3',  
+        icon: 'icon/info.png',
+        title: { 
+          'zh-TW': '教科文組織' 
+        },
+        desc: { 
+          'zh-TW': '廟宇於1995至2003年間進行修復工程，秉持「整舊如舊」原則，使建築細節恢復歷史原貌，並於2003年獲得聯合國教科文組織（UNESCO）的肯定。' 
+        },
+        media: { 
+          type: 'image', 
+          src: 'scene/UNESCO.png' 
+        }
+      }
     ]
   },
 
@@ -155,6 +265,41 @@ const SCENES = {
       { target: 'left-corridor', position: '-1 1.5 -3', label: { 'zh-TW': '左廊' } },
       { target: 'zhengdian',     position: '0 1.5 -3',  label: { 'zh-TW': '回到正殿' } },
       { target: 'hou-dong',      position: '1 1.5 -3',  label: { 'zh-TW': '後棟' } }
+    ],
+    knowledge: [
+      {
+        id: 'k-hou-dian-01',
+        type: 'info',
+        position: '0 .5 -3',
+        icon: 'icon/info.png',
+        title: { 'zh-TW': '主神神農殿' },
+        desc: { 
+          'zh-TW': '神農氏是中華民族的重要祖先之一，被尊為「百草之神」。他嚐百草、辨五穀，教導人類農耕與醫藥知識，因此被後世尊奉為農業與醫藥之神。神農氏的故事象徵著勤勞與智慧，對後世農業文明有深遠影響。' 
+        },
+        media: { type: 'image', src: 'scene/shennong.jpg' }
+      },
+      {
+        id: 'k-hou-dian-01',
+        type: 'info',
+        position: '1 0.5 -3',
+        icon: 'icon/info.png',
+        title: { 'zh-TW': '井' },
+        desc: { 
+          'zh-TW': '過去廟中信眾求得藥籤後，會以井水配合使用，象徵藥效與神力的結合。井水被視為靈水，與廟宇周邊的中藥行與藥草產業也有著密切關聯（相關細節待進一步查證）。' 
+        },
+        media: { type: 'image', src: 'scene/well.jpg' }
+      },
+      {
+        id: 'temple-xiziting',
+        type: 'info',
+        position: '2 0.5 -3',
+        icon: 'icon/info.png',
+        title: { 'zh-TW': '惜字亭' },
+        desc: { 
+          'zh-TW': '昔日人們珍惜讀書機會，對筆墨紙均抱持敬重與珍惜之心。惜字亭象徵尊重文字、崇尚知識的精神。'
+        },
+        media: { type: 'image', src: 'scene/word_temple.jpg' }
+      }
     ]
   },
 
