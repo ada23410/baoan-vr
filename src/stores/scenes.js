@@ -34,6 +34,7 @@ const SCENES = {
         id: 'k-sanchuan-01',
         type: 'info',
         position: '1.5 1.5 -3',
+        icon: 'icon/info.png',
         title: { 'zh-TW': '三川殿' },
         desc:  { 'zh-TW': '三川殿正面立面採「十一開間」配置，面闊分十一柱間，中央三開間強調中軸與出入主線。屋頂為「歇山重簷」，兩層出檐分級，脊線起翹，兼具禮制層次與遮陽排雨功能；整體比例扁闊，形成端正的門面尺度與迎賓儀式感。' },
         // http 連結保留
@@ -178,18 +179,26 @@ const SCENES = {
 
 // —— 載入時統一補上 BASE_URL（只處理相對路徑）
 for (const s of Object.values(SCENES)) {
-  if (s.pano && !isHttp(s.pano)) s.pano = withBase(s.pano)
+  if (s.pano && !isHttp(s.pano)) {
+    s.pano = withBase(s.pano.replace(/^\.?\//, "")) // 去掉前導 "./"
+  }
 
   if (s.hotspots?.length) {
     s.hotspots.forEach(h => {
-      if (h.icon && !isHttp(h.icon)) h.icon = withBase(h.icon)
+      if (h.icon && !isHttp(h.icon)) {
+        h.icon = withBase(h.icon.replace(/^\.?\//, ""))
+      }
     })
   }
 
   if (s.knowledge?.length) {
     s.knowledge.forEach(k => {
-      if (k.icon && !isHttp(k.icon)) k.icon = withBase(k.icon)
-      if (k.media?.src && !isHttp(k.media.src)) k.media.src = withBase(k.media.src)
+      if (k.icon && !isHttp(k.icon)) {
+        k.icon = withBase(k.icon.replace(/^\.?\//, ""))
+      }
+      if (k.media?.src && !isHttp(k.media.src)) {
+        k.media.src = withBase(k.media.src.replace(/^\.?\//, ""))
+      }
     })
   }
 }
