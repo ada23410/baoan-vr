@@ -1,6 +1,6 @@
 <template>
     <a-entity :position="item.position" @click="open">
-    <!-- 圖示（被 raycaster 命中 → 負責觸發 hover） -->
+    <!-- 圖示 -->
         <a-image
             class="hotspot"
             :src="iconSrc"
@@ -15,7 +15,7 @@
             animation__mouseleave="property: scale; to: 1.5 1.5 1; dur: 200; startEvents: mouseleave">
         </a-image>
 
-        <!-- Tooltip（顯示在圖示上方一點點） -->
+        <!-- Tooltip -->
         <a-entity :visible="hovered" position="0 0.42 0" look-at="#cam">
             <a-plane
                 :width="tooltipW" :height="tooltipH"
@@ -51,5 +51,7 @@ const label    = computed(() => props.item.title?.[props.lang] || '')
 const tooltipW = .8   
 const tooltipH = 0.32 
 
-function open(){ emit('open', props.item) }
+function open(){ 
+    emit('open', props.item) 
+}
 </script>

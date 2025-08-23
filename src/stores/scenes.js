@@ -75,7 +75,7 @@ const SCENES = {
         title: { 'zh-TW': '外觀' },
         desc:  { 'zh-TW': '大龍峒保安宮的三川殿，又稱前殿，位於整體建築的第一進，面寬五開間（兩柱之間的空間為一開間），加上左右山門各三開間，整體正面寬達十一開間，視覺氣勢恢弘。以左門為龍門、右門為虎門，門口擺放仁獸一對，屋頂採用重簷歇山式結構，構成了屋宇高低錯落、屋簷翼角飛揚的視覺效果。大楣上雕有雙龍雙鳳，四角雀替雕有飛龍與鰲魚，中樑則設計辟邪的太極及後天八卦圖案，另外在「看架斗栱」上刻有神情各異的八仙、賜福天官與騎鶴仙翁。' },
         // http 連結保留
-        media: { type: 'image', src: 'https://www.baoan.org.tw/photo/paragraph/38/20190718-050533-1.png' }
+        media: { type: 'youtube', src: 'https://www.youtube.com/embed/UrCUYYyF5Ic' }
       },
       {
         id: 'k-sanchuan-02',
@@ -425,10 +425,29 @@ const SCENES = {
         position: '-1 .5 -3', 
         icon: 'icon/left-arrow.png',  
         label: { 'zh-TW': '右廊' } 
+      },
+      {
+        target: 'left-corridor-near', 
+        position: '1 .5 -3', 
+        icon: 'icon/right-arrow.png',  
+        label: { 'zh-TW': '左廊（近部）' } 
       }
     ]
   },
-
+  'left-corridor-near':{
+    id: 'left-corridor-near',
+    name: '左廊（近部）',
+    pano: 'front/02-11.jpg',
+    rotation: '0 -90 0',
+    hotspots: [
+      { 
+        target: 'left-corridor', 
+        position: '0 .5 -3',
+        icon: 'icon/back-arrow.png',   
+        label: { 'zh-TW': '回到左廊' } 
+      }
+    ]
+  },
   'hou-dian':{
     id: 'hou-dian',
     name: '後殿',
@@ -448,10 +467,10 @@ const SCENES = {
         label: { 'zh-TW': '回到正殿' } 
       },
       { 
-        target: 'hou-dong',      
+        target: 'inner-court',      
         position: '1 .5 -3',
         icon: 'icon/right-arrow.png',     
-        label: { 'zh-TW': '後棟' } 
+        label: { 'zh-TW': '內埕' } 
       }
     ],
     knowledge: [
@@ -490,7 +509,19 @@ const SCENES = {
       }
     ]
   },
-
+  'inner-court': {
+    id: 'inner-court',
+    name: '內埕',
+    pano: 'front/02-12.jpg',
+    hotspots: [
+      { 
+        target: 'hou-dian',     
+        position: '0 .5 -3',
+        icon: 'icon/back-arrow.png',     
+        label: { 'zh-TW': '回到後殿' } 
+      },
+    ]
+  },
   'east-door': {
     id: 'east-door',
     name: '東山門',

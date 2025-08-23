@@ -1,5 +1,12 @@
 <template>
   <div style="height:100vh; width:100vw;">
+
+    <!-- Loading -->
+    <div v-if="loading" class="loading-overlay">
+      <div class="spinner"></div>
+      <p>載入中...</p>
+    </div>
+
     <div class="ui-layer">
       <div class="controls" :class="{ open: isOpen }">
         <!-- 切換 icon -->
@@ -28,7 +35,7 @@
       </a-entity>
 
       <!-- 360 背景 -->
-      <a-sky :src="current.pano" rotation="1.5 -90 0"></a-sky>
+      <a-sky :src="current.pano" rotation="1.5 -90 0"  @materialtextureloaded="onSkyLoaded" @materialtextureerror="onSkyError"></a-sky>
 
       <!-- 熱點 -->
       <Hotspot
@@ -67,6 +74,7 @@ import InfoCard from './InfoCard.vue'
 const store = useScenesStore()
 const lang = ref(store.lang)
 const activeKP = ref(null)
+const loading = ref(true)  
 
 const current = computed(() => store.current)
 const allScenes = computed(() => store.allScenes)
@@ -76,9 +84,20 @@ function toggle(){ isOpen.value = !isOpen.value }
 
 // 直接切換
 function go(id){ 
-  store.go(id) 
+  loading.value = true
+  store.go(id)
 }
+
 function openKP(item){ 
   activeKP.value = item 
+}
+
+function onSkyLoaded(){
+  loading.value = false  // 照片載入完成 → 關掉 loading
+}
+
+function onSkyError(e){
+  console.error('pano 載入失敗:', e)
+  loading.value = false
 }
 </script>
