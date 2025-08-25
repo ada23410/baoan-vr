@@ -3,13 +3,13 @@
         <div class="card">
             <div class="header">
                 <h3>{{ title }}</h3>
-                <button class="close" @click="close" style="padding: 0;">×</button>
+                <button class="close" @click="close" style="padding: 1rem .5rem 1rem .5rem;">×</button>
             </div>
             <section class="media" v-if="media">
                     <!-- Loading Spinner -->
                 <div v-if="loading" class="media-loading">
-                <div class="spinner"></div>
-                <p>載入中...</p>
+                    <div class="spinner"></div>
+                    <p>載入中...</p>
                 </div>
                 <img 
                     v-if="media.type==='image'" 
@@ -46,7 +46,9 @@ import { computed, ref, watch } from 'vue'
 
 const props = defineProps({ 
   item: Object, 
-  lang: { type: String, default: 'zh-TW' } 
+  lang: { 
+    type: String, 
+    default: 'zh-TW' } 
 })
 const emit = defineEmits(['close'])
 
@@ -56,7 +58,9 @@ const media = computed(()=> props.item?.media || null)
 
 const loading = ref(true)
 
-function close(){ emit('close') }
+function close(){ 
+    emit('close') 
+}
 
 function onLoaded(){
     loading.value = false

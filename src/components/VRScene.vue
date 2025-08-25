@@ -6,7 +6,8 @@
       <div class="spinner"></div>
       <p>載入中...</p>
     </div>
-
+    
+    <!-- 快捷鍵 -->
     <div class="ui-layer">
       <div class="controls" :class="{ open: isOpen }">
         <!-- 切換 icon -->
@@ -15,8 +16,8 @@
         </button>
         <h3 class="shortcut">快捷鍵</h3>
         <div class="buttons">
-          <button class="button" v-for="s in allScenes" :key="s.id" @click="go(s.id)">
-            {{ s.name }}
+          <button class="button" v-for="scene in allScenes" :key="scene.id" @click="go(scene.id)">
+            {{ scene.name }}
           </button>
         </div>
       </div>
@@ -39,17 +40,17 @@
 
       <!-- 熱點 -->
       <Hotspot
-        v-for="(h,i) in current.hotspots"
+        v-for="(hotspot,i) in current.hotspots"
         :key="i"
-        :hotspot="h"
+        :hotspot="hotspot"
         :lang="lang"
         @select="go" />
 
       <!-- 資訊點 -->
       <KnowledgePoint
-        v-for="(k,i) in current.knowledge || []"
-        :key="k.id || i"
-        :item="k"
+        v-for="(knowledgePoint,i) in current.knowledge || []"
+        :key="knowledgePoint.id || i"
+        :item="knowledgePoint"
         :lang="lang"
         @open="openKP" />
 
@@ -58,7 +59,7 @@
 
       <!-- 預載資訊 -->
       <a-assets>
-        <img v-for="s in allScenes" :key="s.id" :id="`pano-${s.id}`" :src="s.pano" crossorigin="anonymous" />
+        <img v-for="scene in allScenes" :key="scene.id" :id="`pano-${scene.id}`" :src="scene.pano" crossorigin="anonymous" />
       </a-assets>
     </a-scene>
   </div>
@@ -75,12 +76,14 @@ const store = useScenesStore()
 const lang = ref(store.lang)
 const activeKP = ref(null)
 const loading = ref(true)  
+const isOpen = ref(true)  // 預設展開
 
 const current = computed(() => store.current)
 const allScenes = computed(() => store.allScenes)
 
-const isOpen = ref(true)  // 預設展開
-function toggle(){ isOpen.value = !isOpen.value }
+function toggle(){ 
+  isOpen.value = !isOpen.value 
+}
 
 // 直接切換
 function go(id){ 

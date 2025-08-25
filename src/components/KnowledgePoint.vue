@@ -1,6 +1,6 @@
 <template>
     <a-entity :position="item.position" @click="open">
-    <!-- 圖示 -->
+        <!-- 圖示 -->
         <a-image
             class="hotspot"
             :src="iconSrc"
@@ -34,19 +34,28 @@
 import { computed, ref } from 'vue'
 
 const props = defineProps({
-  item:   { type: Object, required: true }, // { id,type,position,title,desc,media,icon? }
-  lang:   { type: String, default: 'zh-TW' },
-  radius: { type: Number, default: 0.18 }
+    item:   { 
+        type: Object, 
+        required: true 
+    }, 
+    lang:   { 
+        type: String, 
+        default: 'zh-TW' 
+    },
+    radius: { 
+        type: Number, 
+        default: 0.18 
+    }
 })
 const emit = defineEmits(['open'])
 const hovered = ref(false)
 
-// 圖示：使用 public/icon/ 下的 PNG
+// 圖示
 const TYPE_ICON = { info: '/icon/info.png' }
 const iconSrc  = computed(() => props.item.icon || TYPE_ICON[props.item.type] || '/icon/info.png')
 const iconSize = computed(() => props.radius * 1.5)
 
-// 小標題內容與對話框尺寸（可依需要調整）
+// 小標題
 const label    = computed(() => props.item.title?.[props.lang] || '')
 const tooltipW = .8   
 const tooltipH = 0.32 

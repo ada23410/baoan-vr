@@ -1,7 +1,8 @@
 <template>
   <div class="ui-menu">
-    <!-- 功能按鈕（展開選單） -->
-    <button class="menu-btn" @click="toggleMenu">☰</button>
+    <!-- 功能按鈕 -->
+    <button class="menu-btn" 
+          @click="toggleMenu">☰</button>
 
     <!-- 選單 -->
     <div v-if="open" class="menu-panel">

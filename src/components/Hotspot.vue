@@ -14,7 +14,7 @@
     >
     </a-image>
 
-    <!-- Tooltip（hover 時才顯示） -->
+    <!-- Tooltip -->
     <a-entity v-if="hovered" position="0 0.4 0" look-at="#cam">
       <a-plane
         :width="tooltipW"
@@ -31,17 +31,19 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-
+// 如有使用setup，可以使用defineProps()
 const props = defineProps({
-  hotspot: { type: Object, required: true },
-  lang: { type: String, default: 'zh-TW' }
+  hotspot: { 
+    type: Object, 
+    required: true 
+  },
+  lang: { 
+    type: String,
+    default: 'zh-TW' }
 })
 const emit = defineEmits(['select'])
-
 const hovered = ref(false)
 const labelText = computed(() => props.hotspot.label?.[props.lang] || '')
-
-// 統一用你準備的箭頭 PNG（放 public/arrow/ 下面）
 const arrowIcon = computed(() => props.hotspot.icon || '/icon/foward-arrow.png')
 
 const tooltipW = 1

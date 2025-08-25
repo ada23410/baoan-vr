@@ -564,40 +564,49 @@ const SCENES = {
 }
 
 // —— 載入時統一補上 BASE_URL（只處理相對路徑）
-for (const s of Object.values(SCENES)) {
-  if (s.pano && !isHttp(s.pano)) {
-    s.pano = withBase(s.pano.replace(/^\.?\//, "")) // 去掉前導 "./"
+for (const scene of Object.values(SCENES)) {
+  // 場景
+  if (scene.pano && !isHttp(scene.pano)) {
+    scene.pano = withBase(scene.pano.replace(/^\.?\//, "")) 
   }
-
-  if (s.hotspots?.length) {
-    s.hotspots.forEach(h => {
-      if (h.icon && !isHttp(h.icon)) {
-        h.icon = withBase(h.icon.replace(/^\.?\//, ""))
+  // hotspots icon
+  if (scene.hotspots?.length) {
+    scene.hotspots.forEach(hotspot => {
+      if (hotspot.icon && !isHttp(hotspot.icon)) {
+        hotspot.icon = withBase(hotspot.icon.replace(/^\.?\//, ""))
       }
     })
   }
-
-  if (s.knowledge?.length) {
-    s.knowledge.forEach(k => {
-      if (k.icon && !isHttp(k.icon)) {
-        k.icon = withBase(k.icon.replace(/^\.?\//, ""))
+  // 知識點
+  if (scene.knowledge?.length) {
+    scene.knowledge.forEach(knowledgePoint => {
+      if (knowledgePoint.icon && !isHttp(knowledgePoint.icon)) {
+        knowledgePoint.icon = withBase(knowledgePoint.icon.replace(/^\.?\//, ""))
       }
-      if (k.media?.src && !isHttp(k.media.src)) {
-        k.media.src = withBase(k.media.src.replace(/^\.?\//, ""))
+      if (knowledgePoint.media?.src && !isHttp(knowledgePoint.media.src)) {
+        knowledgePoint.media.src = withBase(knowledgePoint.media.src.replace(/^\.?\//, ""))
       }
     })
   }
 }
 
 export const useScenesStore = defineStore('scenes', {
-  state: () => ({ lang: 'zh-TW', currentId: 'sanchuan', isNarrationPlaying: false }),
+  state: () => ({ 
+    lang: 'zh-TW', 
+    currentId: 'sanchuan'
+  }),
   getters: {
-    current: (s) => SCENES[s.currentId],
+    current: (state) => SCENES[state.currentId],
     allScenes: () => Object.values(SCENES)
   },
   actions: {
-    setLang(l){ this.lang = l },
-    go(id){ if (SCENES[id]) { this.currentId = id; this.isNarrationPlaying = false } },
-    toggleNarration(){ this.isNarrationPlaying = !this.isNarrationPlaying }
+    setLang(l){ 
+      this.lang = l 
+    },
+    go(id){ 
+      if (SCENES[id]) { 
+        this.currentId = id;
+      }
+    }
   }
 })
